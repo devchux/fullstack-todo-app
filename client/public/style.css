@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.item {
+    border: 1px groove lightgrey;
+    border-radius: 5px;
+}
+.item .del {
+    padding: 0 .5em;
+    background-color: crimson;
+    color: antiquewhite;
+    border: 1px solid blanchedalmond;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+.status {
+    cursor: pointer;
+}
