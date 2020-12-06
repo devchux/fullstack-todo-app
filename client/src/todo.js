@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Todo = ({ todos, errors, removeTodo, updateTodo }) => {
-    console.log(errors)
     return (
         <div className="container my-4">
             {todos.length ? todos.map(todo=>(

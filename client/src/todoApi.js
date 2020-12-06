@@ -1,5 +1,11 @@
 export const getTodos = () => {
-    return fetch('http://127.0.0.1:8000/api/').then(response=>{
+    return fetch('http://127.0.0.1:8000/api/', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
+        }
+    }).then(response=>{
         return response.json()
     })
 }
@@ -12,7 +18,8 @@ export const createTodo = (todo) => {
     return fetch('http://127.0.0.1:8000/api/', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
         },
         body: JSON.stringify(todo)
     }).then(response => ( response.json() ))
@@ -21,7 +28,8 @@ export const deleteTodo = (todoId) => {
     return fetch(`http://127.0.0.1:8000/api/${todoId}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Token ${localStorage.getItem('token')}`
         }
     }).then(response => ( response.json() ))
 }

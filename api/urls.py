@@ -6,7 +6,7 @@ router = routers.DefaultRouter()
 router.register('', TodoList, basename='todos')
 
 urlpatterns = [
-    # path('<int:pk>/', TodoDetail.as_view(), name='todo-detail'),
+    # path('', TodoList.as_view(), name='todos'),
 ]
 
 urlpatterns += router.urls

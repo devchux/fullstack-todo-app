@@ -9,17 +9,20 @@ function App() {
   useEffect(() => {
     getTodos()
       .then((result) => {
-        setTodos({ ...todos, todoItems: result });
+        return setTodos({ ...todos, todoItems: result });
       })
-      .catch((err) => setTodos({ ...todos, errors: err }));
-  }, []);
+      .catch((err) => console.log(err));
+  }, [todos]);
   function addTodo(todo) {
     createTodo(todo)
-      .then((result) =>
-        setTodos({ ...todos, todoItems: [...todos.todoItems, result] })
-      )
+      .then((result) => { 
+        console.log(result)
+        return setTodos({ ...todos, todoItems: [...todos.todoItems, result] })
+        
+      })
       .catch((err) => {
         setTodos({ ...todos, errors: err });
+        console.log(err)
       });
   }
   function updateTodo(todoId) {
